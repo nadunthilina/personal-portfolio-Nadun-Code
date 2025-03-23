@@ -62,3 +62,8 @@ circles.forEach(elem=>{
 
 // mix it up portfolio section
 var mixer = mixitup('.portfolio-gallery');
+
+
+// active menu /////////////////////////////////////////////////
+let menuLi = document.querySelectorAll('header ul li a');
+let section = document.querySelectorAll('section');
