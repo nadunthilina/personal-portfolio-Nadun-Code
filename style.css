@@ -237,3 +237,31 @@ section{
 .btn:hover{
     color: var(--hover-color);
 }
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background: var(--bg-color);
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    transition: .4s;
+}
+
+.btn:hover::before{
+    width: 100%;
+}
+
+.btn:nth-child(2){
+    background: var(--bg-color);
+    color: var(--hover-color);
+}
+
+.btn:nth-child(2):hover{
+    color: var(--bg-color);
+}
+
+.btn:nth-child(2)::before{
+    background: var(--hover-color);
+}
