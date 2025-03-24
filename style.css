@@ -27,3 +27,16 @@
     0 0 100px rgba(18,247,255,0.3),
     0 0 150px rgba(18,247,255,0.3),
 }
+::-webkit-scrollbar{
+    height: 0;
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--secon-bg-color);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--hover-color);
+    border-radius: 5rem;
+}
