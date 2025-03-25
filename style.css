@@ -988,7 +988,27 @@ footer a{
 }
 
 
+@media(max-width:420px){
+    html{
+        font-size: 80%;
+    }
+    footer p{
+        font-size: .6rem;
+   } 
+   .fillter-buttons .button{
+    font-size: .8rem;
+   }
+   .img-about img{
+    width: 300px;
+   }
+   .info-about1,.info-about2,.info-about3{
+    display: none;
+   }
 
+   .img-about p{
+    font-size: 1rem;
+   }
+}
 
 
 
