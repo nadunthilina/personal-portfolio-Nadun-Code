@@ -118,3 +118,51 @@ scrollBottom.forEach((el)=>observer.observe(el));
 
 const scrollTop = document.querySelectorAll(".scroll-top");
 scrollTop.forEach((el)=>observer.observe(el));
+
+// Contact form submit (Formspree)
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    const statusEl = document.getElementById('form-status');
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (statusEl) {
+            statusEl.textContent = 'Sending…';
+        }
+        try {
+            const formData = new FormData(contactForm);
+            const res = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            if (res.ok) {
+                if (statusEl) statusEl.textContent = 'Thanks! Your message has been sent.';
+                contactForm.reset();
+            } else {
+                const data = await res.json().catch(() => ({}));
+                const msg = data && data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again.';
+                if (statusEl) statusEl.textContent = msg;
+            }
+        } catch (err) {
+            if (statusEl) statusEl.textContent = 'Network error. Please try again later.';
+        }
+    });
+}
+
+// Portfolio filter buttons active state
+(function(){
+    const btnsWrap = document.querySelector('.fillter-buttons');
+    if (!btnsWrap) return;
+    const btns = btnsWrap.querySelectorAll('.button');
+    // set default active to 'all'
+    const allBtn = btnsWrap.querySelector('[data-filter="all"]');
+    if (allBtn) allBtn.classList.add('active');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+})();
