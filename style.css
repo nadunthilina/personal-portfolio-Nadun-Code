@@ -10,14 +10,17 @@
 }
 
 :root{
-    --text-color:#f5f5f5;
-    --hover-color:#12f7ff;
-    --bg-color:#250821;
-    --secon-bg-color:#292e33;
-    --big-font:2.5rem;
+    --text-color:#E8EAF1;
+    --muted-text:#B6BDD1;
+    --hover-color:#11D3DB;
+    --bg-color:#0F1226;
+    --secon-bg-color:#151936;
+    --surface-color:#1A1F49;
+    --border-color:rgba(255,255,255,0.08);
+    --big-font:2.75rem;
     --normal-font:2rem;
-    --neon-box-shadow:0 0 .5rem #12f7ff;
-    --h2-font:3rem;
+    --neon-box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    --h2-font:2.25rem;
     --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
     0 0 20px rgba(18,247,255,0.3),
     0 0 30px rgba(18,247,255,0.3),
@@ -41,13 +44,13 @@
     border-radius: 5rem;
 }
 .logo {
-    position: absolute;
-    top: -50px;
-    left: -8px;
+    position: static;
+    display: inline-flex;
+    align-items: center;
 }
 
 .logo img {
-    height: 180px; /* Adjust the size */
+    height: 42px; /* compact logo size */
     width: auto;
 }
 
@@ -68,13 +71,15 @@ header{
     align-content: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 10%;
+    padding: 10px 10%;
+    background: rgba(15, 18, 38, 0.55);
+    backdrop-filter: blur(8px);
 }
 
 header.sticky{
-    background: var(--bg-color);
-    border-bottom: 1px solid var(--secon-bg-color);
-    padding: 12px 10%;
+    background: rgba(15, 18, 38, 0.9);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 10%;
 }
 
 .logo{
@@ -95,21 +100,14 @@ span{
     display: inline-block;
     color: var(--text-color);
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 8px 16px;
     animation: slideAnimation 1s ease forwards;
     animation-delay: calc(.3s * var(--i));
     opacity: 0;
 }
 .navlist a:hover{
     color: var(--hover-color);
-    text-shadow: 0 0 10px rgba(18,247,255,0.6),
-    0 0 20px rgba(18,247,255,0.6),
-    0 0 30px rgba(18,247,255,0.6),
-    0 0 40px rgba(18,247,255,0.6),
-    0 0 70px rgba(18,247,255,0.6),
-    0 0 80px rgba(18,247,255,0.6),
-    0 0 100px rgba(18,247,255,0.6),
-    0 0 150px rgba(18,247,255,0.6);
+    text-shadow: 0 0 10px rgba(18,247,255,0.3);
 }
 
 .navlist a.active{
@@ -121,9 +119,9 @@ span{
     z-index: 10001;
     cursor: pointer;
     margin-left: 25px;
-    background: var(--hover-color);
-    border-radius: 3px;
-    color: var(--secon-bg-color);
+    background: transparent;
+    border-radius: 8px;
+    color: var(--text-color);
     display: none;
 }
 
@@ -173,11 +171,11 @@ section{
 
 .change-text h3 .word .letter.out{
     transform: rotateX(90deg);
-    transform: 0.32s cubic-bezier(0.6,0,0.7,0.2);
+    transition: 0.32s cubic-bezier(0.6,0,0.7,0.2);
 }
 
 .change-text h3 .word .letter.in{
-    transform: 0.38s ease;
+    transition: 0.38s ease;
 }
 
 .change-text h3 .word .letter.behind{
@@ -185,7 +183,7 @@ section{
 }
 
 .home-content p{
-    color: #bdbdbd;
+    color: var(--muted-text);
     line-height: 1.6;
 }
 
@@ -197,7 +195,7 @@ section{
     margin: 1rem 0 2rem;
 }
 
-.info-boxh5{
+.info-box h5{
     font-weight: 600;
     color: var(--text-color);
     font-size: 1rem;
@@ -222,13 +220,13 @@ section{
     width: 150px;
     height: 100%;
     background: var(--hover-color);
-    color: var(--bg-color);
+    color: #0a0d20;
     font-size: 1rem;
     letter-spacing: 1px;
     font-weight: 600;
     transition: .6s;
     box-shadow: var(--neon-box-shadow);
-    border-radius: 5px;
+    border-radius: 10px;
     position: relative;overflow: hidden;
     z-index: 1;
     border: 2px solid var(--hover-color);
@@ -279,12 +277,12 @@ section{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background: var(--bg-color);
+    background: var(--surface-color);
     color: var(--hover-color);
-    border: 2px solid var(--hover-color);
+    border: 1px solid var(--border-color);
     transition: .6s;
-    box-shadow: 0 0 0.3rem #12f7ff;
-    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+    border-radius: 12px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -459,9 +457,10 @@ section{
     flex: 1 1 18rem;
     padding: 2rem 1rem 2rem;
     text-align: center;
-    background: var(--secon-bg-color);
-    transition: .4s;
-    border-radius: 10px;
+    background: var(--surface-color);
+    transition: .3s ease;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
 }
 
 .service-btn{
@@ -477,16 +476,16 @@ section{
 
 .service-icon{
     border: 2px solid var(--hover-color);
-    padding: 2rem;
-    background: var(--bg-color);
+    padding: 1.4rem;
+    background: linear-gradient(180deg, rgba(17,211,219,0.12), transparent);
     display: flex;
     align-items: center;
     font-size: 3rem;
-    border-radius: 50%;
+    border-radius: 24px;
     position: relative;
     color: var(--hover-color);
-    box-shadow: var(--neon-box-shadow);
-    outline: 3px solid var(--bg-color);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+    outline: none;
 }
 
 .services-box h3{
@@ -494,7 +493,7 @@ section{
     font-size: 1.5rem;
 }
 
-.service-box p{
+.services-box p{
     margin: .5rem 0 1.5rem 0;
     font-weight: 300;
     letter-spacing: 1px;
@@ -648,6 +647,11 @@ section{
     color: var(--hover-color);
 }
 
+.fillter-buttons .button.active{
+    color: var(--hover-color);
+    border-bottom: 2px solid var(--hover-color);
+}
+
 .portfolio-gallery{
     display: grid;
     grid-template-columns: repeat(auto-fill , minmax(270px , 1fr));
@@ -658,12 +662,12 @@ section{
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-    background: #292e33;
+    background: var(--surface-color);
     display: flex;
     grid-template-columns: 1fr auto;
     align-items: center;
-    border: 2px solid var(--hover-color);
-    box-shadow: var(--neon-box-shadow);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.18);
 }
 
 .port-image{
@@ -676,7 +680,7 @@ section{
 
 .port-image img{
     width: 100%;
-    opacity: .5s;
+    opacity: .5;
     height: 100%;
     transition: .5s;
 }
@@ -688,7 +692,7 @@ section{
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: linear-gradient(rgba(0,0,0,.2),#12f7ff);
+    background: linear-gradient(rgba(0,0,0,.1), rgba(17,211,219,0.2));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -734,30 +738,30 @@ section{
 }
 
 /* Contact section css */
-.contant{
+.contact{
     background: var(--secon-bg-color);
     width: 100%;
 }
 
-.contant form{
+.contact form{
     text-align: center;
     max-width: 50rem;
     margin: 1rem auto;
     margin-bottom: 3rem;
 }
 
-.contant form input,
-.contant form textarea{
+.contact form input,
+.contact form textarea{
     width: 100%;
     color: var(--text-color);
-    background: var(--bg-color);
+    background: var(--surface-color);
     margin-bottom: .8rem;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     padding: .7rem;
 }
 
-.contant form textarea{
+.contact form textarea{
     resize: none;
 }
 
@@ -770,6 +774,25 @@ section{
 .formBtn .btn{
     cursor: pointer;
     font-size: 1rem;
+}
+
+/* Contact form status */
+.form-status{
+    margin: .5rem 0 0;
+    font-size: .9rem;
+    color: #bdbdbd;
+}
+
+/* Contact grid layout */
+.contact form .form-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+    margin-bottom: .8rem;
+}
+.contact form .form-grid > *{ width: 100%; }
+@media(max-width:768px){
+    .contact form .form-grid{ grid-template-columns: 1fr; }
 }
 
 /* footer css */
@@ -790,7 +813,7 @@ footer a{
     color: var(--bg-color);
     background: var(--hover-color);
     padding: .6rem;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 footer a{
